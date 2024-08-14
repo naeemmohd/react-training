@@ -49,7 +49,7 @@ const HouseList = () => {
         </tbody>
       </table>
       <button className="btn btn-primary" onClick={addHouse}>
-        Add
+        Add a House
       </button>
     </>
   );
