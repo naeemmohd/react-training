@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import HouseRow from "./houseRow";
 
 const HouseList = () => {
@@ -12,6 +12,21 @@ const HouseList = () => {
     };
     fetchHouses();
   }, []);
+
+  //how to use useRef for getting reference of a DOM element
+  const inputElement = useRef();
+
+  const focusInput = () => {
+    inputElement.current.focus();
+  };
+
+  //how to use useRef  for tracking state changes
+  const [inputValue, setInputValue] = useState("");
+  const previousInputValue = useRef("");
+
+  useEffect(() => {
+    previousInputValue.current = inputValue;
+  }, [inputValue]);
 
   const addHouse = () => {
     setHouses([
@@ -51,6 +66,27 @@ const HouseList = () => {
       <button className="btn btn-primary" onClick={addHouse}>
         Add a House
       </button>
+      
+      <br /><br /><hr />
+      <div>
+        <label>Demonstrate how to use useRef for getting reference of a DOM element</label>
+      </div>
+      
+      <input type="text" ref={inputElement} />
+      <button onClick={focusInput}>Focus on Textbox</button>
+
+      <br /><br /><hr />
+      <div>
+      <label>Demonstrate how to use useRef  for tracking state changes</label>
+      </div>
+      
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+      <h5>Current Value: {inputValue}</h5>
+      <h5>Previous Value: {previousInputValue.current}</h5>
     </>
   );
 };
