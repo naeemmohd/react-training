@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import HouseRow from "./houseRow";
 
 const HouseList = () => {
@@ -18,7 +18,8 @@ const HouseList = () => {
       ...houses,
       {
         id: 3,
-        address: "32 Valley Way, New York",
+        address: "1132 Valley Way, Prosper, TX 75065",
+        description: "A beautiful single family home in sub-urb Prosper.",
         country: "USA",
         price: 1000000,
       },
@@ -37,6 +38,7 @@ const HouseList = () => {
           <tr>
             <th>Address</th>
             <th>Country</th>
+            <th>Description</th>
             <th>Asking Price</th>
           </tr>
         </thead>

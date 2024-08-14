@@ -5,6 +5,7 @@ const HouseRow = ({house}) =>{
         <tr>
             <td>{house.address}</td>
             <td>{house.country}</td>
+            <td>{house.description}</td>
             <td>{currencyFormatter.format(house.price)}</td>
         </tr>
     );
